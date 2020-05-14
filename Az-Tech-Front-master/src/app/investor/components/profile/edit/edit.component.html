@@ -1,0 +1,114 @@
+<form [formGroup]="form" (ngSubmit)="updateProfile(form)">
+
+
+    <div class="p-2">
+      <h5 class="grey-text" style="padding:0; margin:0;"><b> Edit Profile </b> </h5>
+      <hr>
+    
+      <div>
+        <div class="row">
+          <div class="col-md-4">First Name</div>
+          <div class="col-md-8 ">
+            <input type="text" id="name" class="borderless" [placeholder]="fname" formControlName="fname">
+            
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-4">Last Name</div>
+          <div class="col-md-8">
+            <input type="text" id="name" class="borderless" [placeholder]="lname" formControlName="lname">
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-md-4">Organisation</div>
+          <div *ngIf="organisation == undefined" class="col-md-8">
+              <input type="text" id="name" class="borderless" placeholder="Enter your organisation" formControlName="organisation">
+            </div>
+          <div *ngIf="organisation != undefined" class="col-md-8">
+            <input type="text" id="name" class="borderless" [placeholder]="organisation" formControlName="organisation">
+          </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-4">Field</div>
+            <div *ngIf="field == undefined" class="col-md-8">
+                <input type="text" id="name" class="borderless" placeholder="Enter your field" formControlName="field">
+              </div>
+            <div *ngIf="field != undefined" class="col-md-8">
+              <input type="text" id="name" class="borderless" [placeholder]="field" formControlName="field">
+            </div>
+          </div>
+    
+          <div class="row pt-2 mt-4">
+              <div class="col-md-4 pt-2">Country</div>
+              <div class="col-md-8">
+                <select class="custom-select" formControlName="country">
+                    <option selected >{{country}}</option>
+                  <option *ngFor="let item of countries" >{{item}}</option>
+                </select>
+              </div>
+            </div>
+      </div>
+    
+      <div class="row mt-2">
+          <div class="col-md-4">About</div>
+          <div *ngIf="about == undefined" class="col-md-8">
+              <textarea rows="8" id="content" class="borderless" placeholder="Briefly describe yourself" formControlName="about"></textarea>
+              </div>
+          <div *ngIf="about != undefined" class="col-md-8">
+          <textarea rows="8" id="content" class="borderless" [placeholder]="about" formControlName="about"></textarea>
+          </div> 
+      </div> 
+  
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-success d-flex" type="submit" *ngIf="editStage">Save</button>
+          <button class="btn btn-sm btn-danger d-flex" type="button" (click)="editProfile()" *ngIf="!editStage">Edit</button>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    
+    </div>
+    
+    
+    </form>
+
+    <form [formGroup]="passwordform">
+
+        <div>
+        <div class="row mt-4">
+          <div class="col-md-4">Current Password</div>
+          <div class="col-md-8">
+            <input type="text" class="borderless" placeholder="Current Password" formControlName="password">
+          </div>
+        </div>
+  
+        <div class="row mt-4">
+          <div class="col-md-4">New Password</div>
+          <div class="col-md-8">
+            <input type="text" class="borderless" placeholder="New Password" formControlName="newPassword">
+          </div>
+        </div>
+  
+        <div class="row mt-4">
+          <div class="col-md-4">Confirm Password</div>
+          <div class="col-md-8">
+            <input type="text" class="borderless" placeholder="Confirm Password" formControlName="confirmPassword">
+          </div>
+        </div>
+        
+      <span *ngIf = "!match"><p class="text-danger">New password not match</p></span>
+  
+      </div>
+      <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+      <button class="btn btn-sm btn-success d-flex" (click)="changePassword()" >Change Password</button>
+      </div>
+      <div class="col-md-4"></div>
+      </div>
+  
+      </form>

@@ -1,0 +1,25 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark special-color-dark scrolling-navbar ie-nav">
+    <mdb-navbar-brand>
+        <div class="row">
+            <div class="col-sm" style=" border-right:white solid 1px;">
+                    <img  src="../../../../assets//images/favicon.png.jpg"  class="rounded-circle hover" style="height:50px; width:50px;">
+                <!-- <p style="color:white;margin-top: 9px;">AZ-Tech</p> -->
+            </div>
+            <div class="col-sm">
+                <a class="logo navbar-brand" href="#"><strong style="font-family: 'Ultra', serif;">{{user}}</strong></a>
+
+            </div>
+        </div>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+        <ul class="navbar-nav nav-flex-icons">
+            <button
+              *ngIf="authService.isLogged()"
+            class="btn mdb-color lighten-2 btn-sm" (click)="logOut()">LogOut</button>
+  
+        </ul>
+    </links>
+  </mdb-navbar>
